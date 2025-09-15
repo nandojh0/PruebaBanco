@@ -1,0 +1,77 @@
+-- ==============================
+-- CREACIÓN DE BASE DE DATOS
+-- ==============================
+CREATE DATABASE IF NOT EXISTS BANCO_DB
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+
+USE BANCO_DB;
+
+
+-- ==============================
+-- TABLA persons
+-- ==============================
+CREATE TABLE persons (
+    person_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    gender CHAR(1) NOT NULL,
+    age INT NOT NULL,
+    identification VARCHAR(20) NOT NULL UNIQUE,
+    address VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL
+) ENGINE=InnoDB;
+
+
+
+-- ==============================
+-- TABLA clients
+-- ==============================
+CREATE TABLE clients (
+    client_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    person_id BIGINT,
+    password VARCHAR(100) NOT NULL,
+    status VARCHAR(10) NOT NULL,
+    CONSTRAINT fk_person
+        FOREIGN KEY (person_id)
+        REFERENCES persons(person_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+
+
+-- ==============================
+-- TABLA CUENTAS
+-- ==============================
+
+CREATE TABLE accounts (
+    account_number BIGINT AUTO_INCREMENT PRIMARY KEY,
+    account_type VARCHAR(20) NOT NULL,
+    balance DECIMAL(15,2) NOT NULL,
+    status BOOLEAN NOT NULL,
+    client_id BIGINT NOT NULL,
+    CONSTRAINT fk_client
+        FOREIGN KEY (client_id)
+        REFERENCES clients(client_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+)ENGINE=InnoDB AUTO_INCREMENT=100000;
+
+
+-- ==============================
+-- TABLA MOVIMIENTOS
+-- ==============================
+CREATE TABLE movements (
+    movement_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    movement_type VARCHAR(20) NOT NULL,
+    value DECIMAL(15,2) NOT NULL,
+    initial_balance DECIMAL(15,2) NOT NULL,
+    balance DECIMAL(15,2) NOT NULL,
+    account_number BIGINT NOT NULL,
+    CONSTRAINT fk_account
+        FOREIGN KEY (account_number)
+        REFERENCES accounts(account_number)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;

@@ -1,0 +1,30 @@
+23:50:28 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ClientServiceImpl/findAll() Start fetching all clients
+23:50:31 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ClientServiceImpl/findAll() Successfully fetched 1 clients
+23:50:31 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ClientController/getAll() Response: WsResponse(codeAndMessageBasicResponse=(200) success, data=[ClientDTO{clientId=6, status=true}])
+23:50:40 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ClientServiceImpl/findById() Start fetching client with ID: 6
+23:50:42 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ClientServiceImpl/findById() Successfully fetched client: 6
+23:50:42 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ClientController/getById() Response: WsResponse(codeAndMessageBasicResponse=(200) success, data=ClientDTO{clientId=6, status=true})
+23:50:46 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ClientServiceImpl/findById() Start fetching client with ID: 1
+23:50:48 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ClientServiceImpl/findById() Client not found with ID: 1
+23:50:48 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ClientController/getById() Response: WsResponse(codeAndMessageBasicResponse=(404) not found, data=null)
+23:50:55 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ClientServiceImpl/save() Start saving client: 123456789
+23:50:57 ERROR | ClientIP: 0:0:0:0:0:0:0:1 |  | ClientServiceImpl/save() Duplicate identification: 123456789 - java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '123456789' for key 'persons.identification'
+23:50:57 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ClientController/create() Response: WsResponse(codeAndMessageBasicResponse=(409) La identificación ya existe: 123456789, data=null)
+23:51:20 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | AccountController/getAccountById() Request received for account: 100000
+23:51:20 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | AccountServiceImpl/findById() Start fetching account with number: 100000
+23:51:22 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | AccountServiceImpl/findById() Account not found with number: 100000
+23:51:28 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | AccountController/getAccountById() Request received for account: 100003
+23:51:28 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | AccountServiceImpl/findById() Start fetching account with number: 100003
+23:51:30 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | AccountServiceImpl/findById() Successfully fetched account: 100003
+23:51:40 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | MovementController/addMovement() Request received to add movement for account: 100002
+23:51:40 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | AccountServiceImpl/addMovement() Start adding movement to account: 100002
+23:51:44 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | AccountServiceImpl/addMovement() Successfully added movement with ID: 8
+23:51:50 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ReportController/getReport() Fetching report for clientId=6, fechaDesde=2025-09-01T00:00, fechaHasta=2025-09-30T23:59:59
+23:51:50 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ReportServiceImpl/getReport() Start fetching report for clientId: 6
+23:51:53 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ReportServiceImpl/getReport() Successfully generated report for client 6
+IV: CBr-vJ8PDQ5fiDLe
+23:51:53 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ReportController/getReport() Response: WsResponse(codeAndMessageBasicResponse=(200) success, data=[MovementResponseDTO{fecha=14/09/2025, cliente=Hernando Hernandez, numeroCuenta=<*2KomtwHPyE7H3eQ/QszLo7iDk/V3Ag==*>, tipo=Ahorros, saldoInicial=2000.0, estado=true, movimiento=2000.0, saldoDisponible=4000.0}, MovementResponseDTO{fecha=14/09/2025, cliente=Hernando Hernandez, numeroCuenta=<*2KomtwHOp0A2R5qrxSRy7V0FnRazZQ==*>, tipo=Corriente, saldoInicial=2000.0, estado=true, movimiento=100.0, saldoDisponible=2100.0}, MovementResponseDTO{fecha=14/09/2025, cliente=Hernando Hernandez, numeroCuenta=<*2KomtwHPyE7H3eQ/QszLo7iDk/V3Ag==*>, tipo=Ahorros, saldoInicial=4000.0, estado=true, movimiento=-500.0, saldoDisponible=3500.0}, MovementResponseDTO{fecha=15/09/2025, cliente=Hernando Hernandez, numeroCuenta=<*2KomtwHPyE7H3eQ/QszLo7iDk/V3Ag==*>, tipo=Ahorros, saldoInicial=3500.0, estado=true, movimiento=-500.0, saldoDisponible=3000.0}])
+23:51:59 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ReportController/getAccountReport() Fetching account report for clientId=6, fechaDesde=2025-09-01, fechaHasta=2025-09-14
+23:51:59 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ReportServiceImpl/getAccountReport() Start generating report for client: 6, from 2025-09-01 to 2025-09-14
+23:52:02 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ReportServiceImpl/getAccountReport() Report generated successfully for client: 6
+23:52:02 INFO  | ClientIP: 0:0:0:0:0:0:0:1 |  | ReportController/getAccountReport() Response generated successfully

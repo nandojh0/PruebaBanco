@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "4616e804-5e6d-465a-94e7-d158c0bffcd0",
+		"name": "prueba banco",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39340340",
+		"_collection_link": "https://planetary-rocket-132437.postman.co/workspace/My-Workspace~db681ea4-d823-4347-893a-b99b7bae107f/collection/39340340-4616e804-5e6d-465a-94e7-d158c0bffcd0?action=share&source=collection_link&creator=39340340"
+	},
+	"item": [
+		{
+			"name": "cliente",
+			"item": [
+				{
+					"name": "lista de clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/clientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cuenta",
+			"item": [
+				{
+					"name": "Crear cuenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountType\": \"Corriente\",\r\n    \"balance\": 2000,\r\n    \"status\": true,\r\n    \"clientId\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cuentas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuentas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movimientos",
+			"item": [
+				{
+					"name": "add movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\": 100002,\r\n    \"value\": \"-500\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/movimientos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reportes",
+			"item": [
+				{
+					"name": "reportes de cuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/reportes?clientId=6&fechaDesde=2025-09-01T00:00:00&fechaHasta=2025-09-30T23:59:59",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"reportes"
+							],
+							"query": [
+								{
+									"key": "clientId",
+									"value": "6"
+								},
+								{
+									"key": "fechaDesde",
+									"value": "2025-09-01T00:00:00"
+								},
+								{
+									"key": "fechaHasta",
+									"value": "2025-09-30T23:59:59"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
